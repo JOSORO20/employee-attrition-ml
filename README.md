@@ -1,5 +1,7 @@
 # Credit Card Approval — End-to-End ML Project
 
+**GitHub Repository:** [JOSORO20/employee-attrition-ml](https://github.com/JOSORO20/employee-attrition-ml)
+
 An end-to-end machine learning project that predicts whether a credit card application should be **approved**. It includes:
 - Clean, modular **src** code with type hints
 - **Training, evaluation, and inference** scripts
