@@ -98,7 +98,15 @@ cc-approval-ml/
 ## 3) VS Code
 
 - Open the folder in VS Code.
-- Recommended extensions will show (Python, Pylance). You also have ready-made `tasks` and `launch` to run the API & tests.
+- Recommended extensions will show (Python, Pylance). 
+- **Ready-made launch configurations** in `.vscode/launch.json`:
+  - **Run API (FastAPI/Uvicorn)**: Start the API server with debug support
+  - **Pytest**: Run tests with debugging enabled
+- **Ready-made tasks** in `.vscode/tasks.json`:
+  - `Install deps`: Install project dependencies
+  - `Train model`: Train the ML model
+  - `Evaluate`: Evaluate model performance
+  - `Serve API`: Start the FastAPI server
 
 ---
 
