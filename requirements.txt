@@ -1,0 +1,16 @@
+# Core
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.4
+joblib>=1.3
+
+# API & CLI
+fastapi>=0.110
+uvicorn[standard]>=0.23
+pydantic>=2.5
+typer>=0.9
+
+# Dev / QA
+pytest>=7.4
+black>=24.0.0
+ruff>=0.4.0

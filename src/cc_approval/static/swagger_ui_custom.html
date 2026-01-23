@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Credit Card Approval API</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3/swagger-ui.css">
+    <link rel="shortcut icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+      }
+      
+      .swagger-ui {
+        background: #f8f9fa;
+      }
+      
+      .topbar {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+      }
+      
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      
+      .topbar h1 {
+        color: white;
+        font-size: 28px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .info-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 12px;
+        margin: 20px;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+      }
+      
+      .info {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .info h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      
+      .info p {
+        font-size: 16px;
+        opacity: 0.95;
+        line-height: 1.6;
+      }
+      
+      /* Color-coded endpoints */
+      .opblock-get {
+        border-left: 4px solid #0ea5e9 !important;
+      }
+      
+      .opblock-get .opblock-summary-method {
+        background: #0ea5e9 !important;
+        color: white;
+      }
+      
+      .opblock-post {
+        border-left: 4px solid #10b981 !important;
+      }
+      
+      .opblock-post .opblock-summary-method {
+        background: #10b981 !important;
+        color: white;
+      }
+      
+      .opblock-put {
+        border-left: 4px solid #f59e0b !important;
+      }
+      
+      .opblock-put .opblock-summary-method {
+        background: #f59e0b !important;
+        color: white;
+      }
+      
+      .opblock-delete {
+        border-left: 4px solid #ef4444 !important;
+      }
+      
+      .opblock-delete .opblock-summary-method {
+        background: #ef4444 !important;
+        color: white;
+      }
+      
+      /* Buttons */
+      .btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 10px 20px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+      }
+      
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3) !important;
+      }
+      
+      /* Tabs and headers */
+      .opblock-tag {
+        background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        border-left: 4px solid #667eea;
+      }
+      
+      .opblock-tag-section {
+        background: #f0f4ff;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+      
+      .tab {
+        background: #f8f9fa;
+      }
+      
+      .tablinks.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        border-radius: 4px 4px 0 0;
+      }
+      
+      /* Models section */
+      .models-container {
+        background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      
+      .model-box {
+        background: white;
+        border: 2px solid #667eea;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px 0;
+      }
+      
+      /* Badge styling */
+      .version-stamp {
+        background: #10b981 !important;
+        color: white !important;
+        padding: 4px 12px !important;
+        border-radius: 20px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+      }
+      
+      /* Response codes */
+      .response-col_status {
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 4px;
+      }
+      
+      .response-col_status code {
+        background: #f3f4f6;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+      
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #667eea;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #764ba2;
+      }
+      
+      /* Animations */
+      .opblock {
+        transition: all 0.3s ease;
+      }
+      
+      .opblock:hover {
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+      }
+      
+      /* Section titles */
+      .section-title {
+        color: #667eea;
+        font-weight: 700;
+        margin: 30px 0 15px 0;
+        font-size: 20px;
+      }
+      
+      /* Copy button */
+      .copy-to-clipboard {
+        background: #667eea !important;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      
+      .copy-to-clipboard:hover {
+        background: #764ba2 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="info-container">
+      <div class="topbar-inner">
+        <div class="info">
+          <h1>💳 Credit Card Approval API</h1>
+          <p>Machine Learning-powered credit card approval prediction system</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="swagger-ui"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3/swagger-ui-standalone-preset.js"></script>
+    <script>
+      const ui = SwaggerUIBundle({
+        url: "/openapi.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+    </script>
+  </body>
+</html>

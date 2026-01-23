@@ -1,0 +1,16 @@
+{
+  "age": 28,
+  "annual_income": 54000,
+  "years_employed": 3,
+  "credit_score": 690,
+  "existing_debt": 2000,
+  "requested_limit": 2500,
+  "debt_to_income": 0.10,
+  "years_at_address": 2,
+  "dependents": 0,
+  "gender": "female",
+  "education_level": "bachelor",
+  "marital_status": "single",
+  "housing_status": "rent",
+  "has_default_history": "no"
+}

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cc-approval-ml"
+version = "0.1.0"
+description = "End-to-end Credit Card Approval ML project"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name="Your Name"}]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "joblib>=1.3",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.23",
+    "pydantic>=2.5",
+    "typer>=0.9",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
