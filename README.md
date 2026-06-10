@@ -4,7 +4,7 @@
 
 This is my end-to-end machine learning project that predicts whether a credit card application gets **approved** or **denied**. Built with best practices—clean code, type hints, proper testing, and production-ready deployment.
 
-## What's Inside 🎯
+ What's Inside 
 
 - ✅ **Clean, modular code** with full type hints
 - ✅ **Complete ML pipeline** (data prep → features → training → evaluation)
@@ -20,7 +20,7 @@ This is my end-to-end machine learning project that predicts whether a credit ca
 
 ---
 
-## Getting Started 🚀
+## Getting Started 
 
 **Setup (2 minutes):**
 
